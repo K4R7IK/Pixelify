@@ -3,8 +3,8 @@ import { client, urlFor } from "../client";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { MdDownloadForOffline } from "react-icons/md";
+import { MdWork } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/md";
-import { BsFillArrowUpRightCircleFillj } from "react-icons/md";
 import { fetchUser } from "../utils/fetchUser";
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
@@ -39,6 +39,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           // setSavingPost(false);
         });
     }
+  };
+
+  const deletePin = (id) => {
+    client.delete(id).then(() => window.location.reload());
   };
 
   return (
@@ -90,9 +94,47 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 </button>
               )}
             </div>
+            <div className="flex justify-between items-center gap-2 w-full">
+              {destination && (
+                <a
+                  href="{destination}"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-white flex items-center gap-2 text-black font-bold p-2 p1-4 pr-4 rounded-full opacity-70 hover:100  hover:shadow-md"
+                >
+                  <MdWork />
+                  {destination.length > 20
+                    ? destination.slice(8, 20)
+                    : destination.slice(8)}
+                </a>
+              )}
+              {postedBy?._id === googleId && (
+                <button
+                  type="button"
+                  className="bg-white p-2 opacity-70 hover:opacity-100 text-dark font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deletePin(_id);
+                  }}
+                >
+                  Delete
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>
+      <Link
+        to={`user-profile/${postedBy?._id}`}
+        className="flex gap-2 mt-2 items-center"
+      >
+        <img
+          className="w-8 h-8 rounded-full object-cover"
+          src={postedBy?.image}
+          alt="Profile"
+        />
+        <p className="font-semibold capitalize">{postedBy?.userName}</p>
+      </Link>
     </div>
   );
 };
