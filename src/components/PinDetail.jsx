@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import { client, urlFor } from "../client";
-import MasonryLayout from "./MasonaryLayout";
+import MasonryLayout from "./MasonryLayout";
 import { pinDetailMorePinQuery, pinDetailQuery } from "../utils/data";
 import Spinner from "./Spinner";
 
@@ -154,11 +154,13 @@ const PinDetail = ({ user }) => {
           </div>
         </div>
       )}
-      {pins?.length > 0 && (
-        <h2 className="text-center font-bold text-2xl mt-8 mb-4">More Pins</h2>
-      )}
-      {pins ? (
-        <MasonryLayout pins={pins} />
+      {pins?.length > 0 ? (
+        <>
+          <h2 className="text-center font-bold text-2xl mt-8 mb-4">
+            More Pins
+          </h2>
+          <MasonryLayout pins={pins} />
+        </>
       ) : (
         <Spinner message="Loading more pins" />
       )}
