@@ -4,8 +4,6 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate, useParams } from "react-router-dom";
 import { googleLogout } from "@react-oauth/google";
 import {
-  userCreatedPinQuery,
-  usesrQuery,
   userSavedPinsQuery,
   userQuery,
   userCreatedPinsQuery,

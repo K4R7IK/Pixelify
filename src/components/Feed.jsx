@@ -29,6 +29,7 @@ const Feed = () => {
   }, [categoryId]);
 
   if (loading) return <Spinner message="Your Net is Slow!!" />;
+  if (!pins?.length) return <h2>No PINS for this category YET!!</h2>;
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };
 
