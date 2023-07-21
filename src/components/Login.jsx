@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { faGoogle } from "react-icons/fc";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import shareVideo from "../assets/share.mp4";
-import logo from "../assets/logowhite.png";
+import shareVideo from "../assets/video.mp4";
+import logo from "../assets/logo.png";
 import jwt_decode from "jwt-decode";
 import { client } from "../client";
 
@@ -48,18 +47,6 @@ const Login = () => {
                 onError={() => console.log("Error")}
                 cookiePolicy="single_host_origin"
               />
-
-              {/* {user ? (<div>Logged In</div>)
-
-                                : <GoogleLogin
-
-                                    onSuccess={(response) => createOrGetuser(response)}
-
-                                    onError={() => console.log('Error')}
-
-                                />
-
-                            } */}
             </div>
           </div>
         </div>
