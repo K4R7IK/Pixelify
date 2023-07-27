@@ -6,12 +6,6 @@
 
 Project made while learning React, Sanity, NextJS, TailwindCSS.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Tech Stack Used](#tech-stack-used)
-- [Previews](#previews)
-
 ## Introduction
 
 - A image sharing app.
@@ -27,9 +21,5 @@ Project made while learning React, Sanity, NextJS, TailwindCSS.
 - Netlify: Hosting Services
 - React Icons: Icons
 - Javascript, HTML, CSS: Languages
-
-## Previews
-
-![desk](https://user-images.githubusercontent.com/75939390/222775347-b6c1ef63-3fe8-46f5-b1b5-03a3317d38d5.png)
 
 [website]: https://pixelify.netlify.app
